@@ -24,11 +24,11 @@ jobs:
     - name: Install dependencies
       run: composer install --no-dev
 
-    - name: executing remote ssh commands using password
+    - name: executing remote ssh commands using ssh-key
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        key: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: whoami
